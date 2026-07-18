@@ -1,5 +1,8 @@
+﻿"use client";
+
 import Image from "next/image";
 import Link from "next/link";
+import { useState } from "react";
 
 const navItems = [
   { href: "/", label: "Home" },
@@ -10,6 +13,8 @@ const navItems = [
 ];
 
 export function SiteHeader() {
+  const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <header className="border-b border-border bg-background">
@@ -38,21 +43,32 @@ export function SiteHeader() {
               </Link>
             ))}
           </nav>
-          <nav className="flex items-center gap-4 md:hidden">
-            <Link
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              href="/steps"
-            >
-              Steps
-            </Link>
-            <Link
-              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              href="/contact"
-            >
-              Contact
-            </Link>
-          </nav>
+          <button
+            aria-expanded={isOpen}
+            aria-label="Toggle navigation menu"
+            className="text-sm text-muted-foreground transition-colors hover:text-foreground md:hidden"
+            onClick={() => setIsOpen((value) => !value)}
+            type="button"
+          >
+            Menu
+          </button>
         </div>
+        {isOpen ? (
+          <nav className="border-t border-border px-6 py-3 md:hidden">
+            <div className="mx-auto flex max-w-5xl flex-col gap-3">
+              {navItems.map((item) => (
+                <Link
+                  className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                  href={item.href}
+                  key={item.href}
+                  onClick={() => setIsOpen(false)}
+                >
+                  {item.label}
+                </Link>
+              ))}
+            </div>
+          </nav>
+        ) : null}
       </header>
       <div className="border-b border-border bg-foreground text-background">
         <div className="mx-auto max-w-5xl px-6 py-2 text-center text-xs font-medium uppercase tracking-widest">
