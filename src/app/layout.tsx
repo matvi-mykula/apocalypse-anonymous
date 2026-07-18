@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { SiteFooter, SiteHeader } from "@/components/site-chrome";
 import "./globals.css";
 
 const geistSans = Geist({
@@ -13,8 +14,23 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "apocalypse anonymous",
-  description: "apocalypse anonymous",
+  metadataBase: new URL("https://apocalypseanonymous.com"),
+  title: {
+    default: "Apocalypse Anonymous",
+    template: "%s - Apocalypse Anonymous",
+  },
+  description:
+    "A 12-step recovery meeting for people who have lived through collapse. We're Here, Now.",
+  openGraph: {
+    title: "Apocalypse Anonymous",
+    description:
+      "A 12-step recovery meeting for people who have lived through collapse. We're Here, Now.",
+    url: "https://apocalypseanonymous.com",
+    type: "website",
+  },
+  twitter: {
+    card: "summary_large_image",
+  },
 };
 
 export default function RootLayout({
@@ -27,7 +43,11 @@ export default function RootLayout({
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="flex min-h-full flex-col">
+        <SiteHeader />
+        {children}
+        <SiteFooter />
+      </body>
     </html>
   );
 }
