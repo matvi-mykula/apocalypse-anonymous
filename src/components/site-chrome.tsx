@@ -56,7 +56,14 @@ export function SiteHeader() {
       </header>
       <div className="border-b border-border bg-foreground text-background">
         <div className="mx-auto max-w-5xl px-6 py-2 text-center text-xs font-medium uppercase tracking-widest">
-          Under Construction
+          <a
+            className="underline underline-offset-4 transition-opacity hover:opacity-80"
+            href="https://github.com/matvi-mykula/apocalypse-anonymous"
+            rel="noopener noreferrer"
+            target="_blank"
+          >
+            Under Construction
+          </a>
         </div>
       </div>
     </>
