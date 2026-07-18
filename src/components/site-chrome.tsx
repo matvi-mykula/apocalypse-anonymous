@@ -11,48 +11,55 @@ const navItems = [
 
 export function SiteHeader() {
   return (
-    <header className="border-b border-border bg-background">
-      <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
-        <Link className="flex items-center gap-2.5" href="/">
-          <Image
-            src="/assets/image.png"
-            alt="Apocalypse Anonymous"
-            width={128}
-            height={64}
-            className="h-7 w-auto shrink-0 object-contain"
-            priority
-          />
-          <span className="text-sm font-medium tracking-normal">
-            Apocalypse Anonymous
-          </span>
-        </Link>
-        <nav className="hidden items-center gap-6 md:flex">
-          {navItems.map((item) => (
+    <>
+      <header className="border-b border-border bg-background">
+        <div className="mx-auto flex h-14 max-w-5xl items-center justify-between px-6">
+          <Link className="flex items-center gap-2.5" href="/">
+            <Image
+              src="/assets/image.png"
+              alt="Apocalypse Anonymous"
+              width={128}
+              height={64}
+              className="h-7 w-auto shrink-0 object-contain"
+              priority
+            />
+            <span className="text-sm font-medium tracking-normal">
+              Apocalypse Anonymous
+            </span>
+          </Link>
+          <nav className="hidden items-center gap-6 md:flex">
+            {navItems.map((item) => (
+              <Link
+                className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+                href={item.href}
+                key={item.href}
+              >
+                {item.label}
+              </Link>
+            ))}
+          </nav>
+          <nav className="flex items-center gap-4 md:hidden">
             <Link
               className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-              href={item.href}
-              key={item.href}
+              href="/steps"
             >
-              {item.label}
+              Steps
             </Link>
-          ))}
-        </nav>
-        <nav className="flex items-center gap-4 md:hidden">
-          <Link
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            href="/steps"
-          >
-            Steps
-          </Link>
-          <Link
-            className="text-sm text-muted-foreground transition-colors hover:text-foreground"
-            href="/contact"
-          >
-            Contact
-          </Link>
-        </nav>
+            <Link
+              className="text-sm text-muted-foreground transition-colors hover:text-foreground"
+              href="/contact"
+            >
+              Contact
+            </Link>
+          </nav>
+        </div>
+      </header>
+      <div className="border-b border-border bg-foreground text-background">
+        <div className="mx-auto max-w-5xl px-6 py-2 text-center text-xs font-medium uppercase tracking-widest">
+          Under Construction
+        </div>
       </div>
-    </header>
+    </>
   );
 }
 
