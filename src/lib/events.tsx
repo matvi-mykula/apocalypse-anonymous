@@ -206,12 +206,12 @@ export function MarkdownBody({ markdown }: { markdown: string }) {
     .filter(Boolean);
 
   return (
-    <div className="flex flex-col gap-3 text-sm leading-relaxed text-muted-foreground">
+    <div className="flex flex-col gap-2 text-sm leading-relaxed text-muted-foreground">
       {blocks.map((block) => {
         if (block.startsWith("### ")) {
           return (
             <h3
-              className="pt-2 text-xs font-medium uppercase tracking-widest text-foreground"
+              className="pt-1 text-xs font-medium uppercase tracking-widest text-foreground"
               key={block}
             >
               {block.replace(/^### /, "")}
