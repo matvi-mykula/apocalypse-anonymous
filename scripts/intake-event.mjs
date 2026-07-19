@@ -68,14 +68,30 @@ async function promptForMissingFields(args) {
 
 async function readBodyMarkdown(root, event, fallbackTitle) {
   if (event.bodyFile) {
-    return fs.readFile(path.resolve(root, event.bodyFile), "utf8");
+    return normalizeBodyMarkdown(
+      await fs.readFile(path.resolve(root, event.bodyFile), "utf8"),
+    );
   }
 
   if (event.body) {
-    return event.body;
+    return normalizeBodyMarkdown(event.body);
   }
 
   return `Details for ${fallbackTitle} are forthcoming.`;
+}
+
+function normalizeTextField(value) {
+  return String(value).replace(/\\n/g, " ").replace(/\s+/g, " ").trim();
+}
+
+function normalizeBodyMarkdown(value) {
+  return String(value)
+    .replace(/\\r\\n|\\n|\\r/g, "\n")
+    .replace(/\r\n?/g, "\n")
+    .split(/\n{2,}/)
+    .map((block) => block.replace(/\n+/g, " ").replace(/[ \t]+/g, " ").trim())
+    .filter(Boolean)
+    .join("\n\n");
 }
 
 function compactObject(value) {
@@ -123,15 +139,16 @@ export async function intakeEvent(root, options) {
     type: "event",
     status: event.status || "draft",
     slug,
-    title: event.title.trim(),
-    date: event.date,
-    startTime: event.startTime,
-    endTime: event.endTime,
-    timezone: event.timezone,
-    location: event.location,
-    summary: event.summary.trim(),
+    title: normalizeTextField(event.title),
+    date: normalizeTextField(event.date),
+    startTime: event.startTime && normalizeTextField(event.startTime),
+    endTime: event.endTime && normalizeTextField(event.endTime),
+    timezone: event.timezone && normalizeTextField(event.timezone),
+    location: event.location && normalizeTextField(event.location),
+    summary: normalizeTextField(event.summary),
     body: bodyFilename,
-    registrationUrl: event.registrationUrl,
+    registrationUrl:
+      event.registrationUrl && normalizeTextField(event.registrationUrl),
     missingFields,
     source,
   });
