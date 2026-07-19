@@ -1,0 +1,22 @@
+{
+  "type": "event",
+  "status": "draft",
+  "slug": "example-gathering",
+  "title": "Example Gathering",
+  "date": "2026-08-01",
+  "startTime": "19:00",
+  "endTime": "20:30",
+  "timezone": "America/New_York",
+  "location": "Zoom",
+  "summary": "A placeholder event showing how upcoming events are edited.",
+  "body": "body.md",
+  "registrationUrl": "mailto:info@apocalypseanonymous.com",
+  "missingFields": [
+    "final title",
+    "final event description"
+  ],
+  "source": {
+    "kind": "sample",
+    "note": "Placeholder event created with the initial events system."
+  }
+}

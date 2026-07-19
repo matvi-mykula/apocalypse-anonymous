@@ -5,6 +5,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "intake:event": "node scripts/intake-event.mjs",
+    "validate:events": "node scripts/validate-events.mjs",
     "start": "next start",
     "lint": "eslint"
   },

@@ -1,0 +1,1 @@
+Apocalypse Anonymous gathers for Surrendering to Gibberish: Toys for Facing an Unknowable Future. This session is with Achel.\n\nMeetings start at 7:00 PM sharp at DS4SI Prototype Lab, 545 Columbia Road, Dorchester, MA. Stale coffee and cookies provided.\n\n[Email for details](mailto:info@apocalypseanonymous.com)

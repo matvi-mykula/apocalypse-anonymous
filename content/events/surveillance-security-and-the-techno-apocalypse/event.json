@@ -1,0 +1,17 @@
+{
+  "type": "event",
+  "status": "published",
+  "slug": "surveillance-security-and-the-techno-apocalypse",
+  "title": "Surveillance, Security and the Techno-Apocalypse",
+  "date": "2026-07-22",
+  "startTime": "19:00",
+  "timezone": "America/New_York",
+  "location": "DS4SI Prototype Lab, 545 Columbia Road, Dorchester, MA",
+  "summary": "A gathering on surveillance, security, and the techno-apocalypse with J.",
+  "body": "body.md",
+  "registrationUrl": "mailto:info@apocalypseanonymous.com",
+  "source": {
+    "kind": "manual",
+    "note": "From flyer photo shared in chat."
+  }
+}

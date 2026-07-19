@@ -1,0 +1,4 @@
+interface:
+  display_name: "Intake Event"
+  short_description: "Add upcoming events from structured details."
+  default_prompt: "Add a new upcoming event using the intake-event workflow."

@@ -1,0 +1,17 @@
+{
+  "type": "event",
+  "status": "published",
+  "slug": "surrendering-to-gibberish-toys-for-facing-an-unknowable-future",
+  "title": "Surrendering to Gibberish: Toys for Facing an Unknowable Future",
+  "date": "2026-07-23",
+  "startTime": "19:00",
+  "timezone": "America/New_York",
+  "location": "DS4SI Prototype Lab, 545 Columbia Road, Dorchester, MA",
+  "summary": "A gathering on surrendering to gibberish and facing an unknowable future with Achel.",
+  "body": "body.md",
+  "registrationUrl": "mailto:info@apocalypseanonymous.com",
+  "source": {
+    "kind": "manual",
+    "note": "From flyer photo shared in chat."
+  }
+}
